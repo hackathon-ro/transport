@@ -10,21 +10,20 @@ if(!isset($_REQUEST['what'])){ exit('da fuck?'); }
 		case "search":
 
 
-		$fetch = (query("SELECT * FROM `statii` WHERE `nume` LIKE '%$name%'"));
-$statii = array();
+		$fetch = query("SELECT * FROM `statii` WHERE `nume` LIKE '%$name%'");
+		$statii = array();
 		while ($row = mysql_fetch_array($fetch, MYSQL_ASSOC)) {
-	    $row_array['id'] = $row['id'];
-	    $row_array['nume'] = $row['nume'];
-	    $row_array['loc'] = $row['loc'];
+		    $row_array['id'] = $row['id'];
+		    $row_array['nume'] = $row['nume'];
+		    $row_array['loc'] = $row['loc'];
 
-	    array_push($statii,$row_array);
-}
+		    array_push($statii,$row_array);
+	}
 
-//var_dump();
 echo json_encode($statii);
 
 		break;
-		case "to":
+		case "id":
    
 			//echo $_REQUEST['name'];
 
