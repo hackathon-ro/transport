@@ -1,19 +1,32 @@
-<?php 
+<?php
 include "kernel/load.php";
 header('Content-Type: application/json');
-$test = array('1' => "cluj", 
-			  '2' =>"$_REQUEST[name]"
-			  );
+
+$name = mysql_real_escape_string($_REQUEST["name"]);
+
+/* de aici incepe */
 if(!isset($_REQUEST['what'])){ exit('da fuck?'); }
 	switch($_REQUEST['what']){
-		case "from":
-  
-			echo json_encode($test);
+		case "search":
+
+
+		$fetch = (query("SELECT * FROM `statii` WHERE `nume` LIKE '%$name%'"));
+$statii = array();
+		while ($row = mysql_fetch_array($fetch, MYSQL_ASSOC)) {
+	    $row_array['id'] = $row['id'];
+	    $row_array['nume'] = $row['nume'];
+	    $row_array['loc'] = $row['loc'];
+
+	    array_push($statii,$row_array);
+}
+
+//var_dump();
+echo json_encode($statii);
 
 		break;
 		case "to":
    
-			echo $_REQUEST['name'];
+			//echo $_REQUEST['name'];
 
 		break;
 
