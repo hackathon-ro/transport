@@ -15,7 +15,7 @@ if(!isset($_REQUEST['what'])){ exit('da fuck?'); }
 		while ($row = mysql_fetch_array($fetch, MYSQL_ASSOC)) {
 		    $row_array['id'] = $row['id'];
 		    $row_array['nume'] = $row['nume'];
-		    $row_array['loc'] = $row['loc'];
+		    $row_array['locatie'] = $row['loc'];
 
 		    array_push($statii,$row_array);
 	}
