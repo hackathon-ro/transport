@@ -135,7 +135,7 @@
 
 	//$tren->getJson('Bucuresti Nord', 'Sinaia');
 
-	 if(!isset($_REQUEST['from']) && !isset($_REQUEST['to']) ){ exit('Ups!'); }
+	 //if(!isset($_REQUEST['from']) && !isset($_REQUEST['to']) ){ exit('Ups!'); }
 
 	// $tren = new Trenuri();
 	 $tren->getJson($_REQUEST['from'], $_REQUEST['to']);
