@@ -4,3 +4,4 @@
 *.komodoproject
 *.kpf
 .komodotools
+/cache
