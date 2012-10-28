@@ -1,9 +1,38 @@
 jQuery(document).ready(function ($) {
 
+  var geocoder = new google.maps.Geocoder();
+
   /* Use this js doc for all application specific JS */
 
   /* TABS --------------------------------- */
   /* Remove if you don't need :) */
+
+  $("#myLocationButton").click(function(e){
+    e.preventDefault();
+    getUserLocation(function(location){
+      $("#mylocation").val(location);
+    });
+  });
+  
+  function getUserLocation(callback){
+   if(navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position){
+            var mylocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+            if(geocoder) {
+                geocoder.geocode({'latLng': mylocation}, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        var locParts = results[0].formatted_address.split(", ");
+                        var locName = locParts[locParts.length - 2] + ", " + locParts[locParts.length - 1];
+                        callback(locName);
+                        return;
+                    }
+                });
+            }
+          });
+   } else {
+    alert('no geo')
+   }
+  }
 
 
   function activateTab($tab) {
@@ -25,11 +54,6 @@ jQuery(document).ready(function ($) {
   $('dl.tabs dd a').live('click', function (event) {
     activateTab($(this));
   });
-
-  if (window.location.hash) {
-    activateTab($('a[href="' + window.location.hash + '"]'));
-    $.foundation.customForms.appendCustomMarkup();
-  }
 
   /* ALERT BOXES ------------ */
   $(".alert-box").delegate("a.close", "click", function(event) {

@@ -18,3 +18,18 @@ body { background: #EAEAEA; }
   color: #ACACAC;
   padding: 0px 10px;
 }
+
+#myLocationButton{
+  background: url("../images/location.png") no-repeat center;
+  width: 32px;
+  height: 32px;
+  display: block;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 32px;
+  line-height: 31px;
+  text-indent: -10000px;
+}
