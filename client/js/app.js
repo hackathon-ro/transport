@@ -8,11 +8,24 @@ jQuery(document).ready(function ($) {
   /* Remove if you don't need :) */
 
   $("#myLocationButton").click(function(e){
-    getUserLocation(function(location){
+    getUserLocation(function(location,latlng){
+      initGeoMap('googleMapElement',latlng);
+      $("#mapModal").reveal();
       $("#mylocation").val(location);
     });
     e.preventDefault();
   });
+  
+  function initGeoMap(elementID,latlng){
+     var mapOptions = {
+        zoom: 8,
+        center: latlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(document.getElementById(elementID), mapOptions);
+  }
+  
+       
   
   function getUserLocation(callback){
    if(navigator.geolocation) {
@@ -23,7 +36,7 @@ jQuery(document).ready(function ($) {
                     if (status == google.maps.GeocoderStatus.OK) {
                         var locParts = results[0].formatted_address.split(", ");
                         var locName = locParts[locParts.length - 2] + ", " + locParts[locParts.length - 1];
-                        callback(locName);
+                        callback(locName,mylocation);
                         return;
                     }
                 });
