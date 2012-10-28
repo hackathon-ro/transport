@@ -22,11 +22,10 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
   <!-- Included JS Files -->
   
   <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    
+  <script type="text/javascript" src="js/jquery.offcanvas.js"></script>
 
-  <script src="js/jquery.js"></script>
-  
-  <script src="js/app.js"></script>
- 
   <!-- Combine and Compress These JS Files -->
   <script src="js/jquery.foundation.reveal.js"></script>
   <script src="js/jquery.foundation.orbit.js"></script>
@@ -34,11 +33,11 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
   <script src="js/jquery.placeholder.js"></script>
   <script src="js/jquery.foundation.tooltips.js"></script>
   <script src="js/jquery.foundation.tabs.js"></script>
-
   <!-- End Combine and Compress These JS Files -->
   
-  <script type="text/javascript" src="js/jquery.offcanvas.js"></script>
-  <script type="text/javascript" src="js/jquery.swype.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+ 
+
 
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
@@ -110,11 +109,18 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
 					  </div>
 						     
 				  </p>
-		  <a id="nextPanel" class="button nextPanel" href="#nextPanel">Gaseste Posibilitati</a>
+		  <a id="submit" class="button" onclick="return getTrasee();" href="#">Gaseste Posibilitati</a>
 		  </div><!-- /#panel-1 -->
           <div id="panel-3" class="page-panel">
-				  <h1>Panel 3</h1>
-				  <p>Quisque lacinia est a libero tempor quis gravida nibh luctus. Nulla facilisi. Vestibulum bibendum ipsum a lacus molestie pulvinar a nec risus. Nulla facilisi. Aenean nec tellus ligula. Ut tortor mi, consequat in ornare in, condimentum sed leo. Phasellus et luctus ipsum. Mauris gravida molestie velit ac iaculis. Integer quis libero id erat consectetur accumsan ut eget diam. In hac habitasse platea dictumst.</p>
+				  <h5>Rezultate</h5>
+				  <div id="lista-rute" class="rows lista-rute">
+					<div class="twelve columns traseu">
+					  <div class="title ico train">Acceleratul de marasesti</div>
+					</div>
+					<div class="twelve columns traseu">
+					  <div class="title ico bus">Acceleratul de marasesti</div><br/>
+					</div>
+				  </div>
 		  </div><!-- /#panel-1 -->
     </form>
   </div>
