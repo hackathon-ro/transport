@@ -15,6 +15,7 @@
 		{
 
 			$url = file_get_contents('http://merstrenuri.ro/Lmb=Xml?Ple=' . $from . '&Sos=' . $to . '&Via=&Sub=Rute&Tpe=on&Tra=on&Tin=on&Ast=3&Dac=15641&Tof=on');
+			
 			$xml = simplexml_load_file($url);
 
 			$this->retArr = array();
@@ -129,7 +130,7 @@
 		}
 	}
 
-	$tren = new Trenuri();
+	
 	//$tren->getJson($_REQUEST['from'], $_REQUEST['to']);
 	
 
@@ -138,4 +139,4 @@
 	 //if(!isset($_REQUEST['from']) && !isset($_REQUEST['to']) ){ exit('Ups!'); }
 
 	// $tren = new Trenuri();
-	 $tren->getJson($_REQUEST['from'], $_REQUEST['to']);
+	 

@@ -1,14 +1,14 @@
 <?php
 include "kernel/load.php";
 include "tren.php";
-header('Content-Type: application/json');
+//header('Content-Type: application/json');
 
 
 $type = mysql_real_escape_string(@$_REQUEST["type"]); 
 $to = mysql_real_escape_string(@$_REQUEST["to"]);
 $from = mysql_real_escape_string(@$_REQUEST["from"]);
 
-
+/* NU MERGE!!! */
 $tren = new Trenuri();
 $tren->getJson($from, $to);
 
