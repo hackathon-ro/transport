@@ -48,6 +48,14 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
 
 <body id="page" class="off-canvas paneled">	
 
+  <datalist id="locations">
+   <option value="Bucuresti">
+   <option value="Sibiu">
+   <option value="Arad">
+   <option value="Braila">
+   <option value="Iasi">
+  </datalist>
+
   <div class="header-warp">
       <div class="mobile-header">
         <h2 class="app-title">Transport 3.0</h2>
@@ -61,7 +69,7 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
   </div>
             
   <div class="row">
-    <div role="main" id="main">
+    <form method="POST" role="main" id="main" class="custom">
   		  <div id="panel-1" class="page-panel">
 				  <h1>Unde esti?</h1>
 				  <p>
@@ -72,7 +80,7 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
                           <span class="prefix">Oras</span>
                         </div>
                         <div class="nine mobile-two columns">
-                          <input id="mylocation" class="twelve" type="text" placeholder="Bucuresti">
+                          <input id="from" list="locations" class="twelve" type="text" placeholder="Bucuresti">
                         </div>
 						<div class="one mobile-one columns">
                           <a id="myLocationButton" href="#"></a>
@@ -83,22 +91,48 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
 		  </div><!-- /#panel-1 -->
           <div id="panel-2" class="page-panel">
 				  <h1>Unde vrei sa ajungi?</h1>
-				  <p>Quisque lacinia est a libero tempor quis gravida nibh luctus. Nulla facilisi. Vestibulum bibendum ipsum a lacus molestie pulvinar a nec risus. Nulla facilisi. Aenean nec tellus ligula. Ut tortor mi, consequat in ornare in, condimentum sed leo. Phasellus et luctus ipsum. Mauris gravida molestie velit ac iaculis. Integer quis libero id erat consectetur accumsan ut eget diam. In hac habitasse platea dictumst.</p>
-		  </div><!-- /#panel-1 -->
+				  <p>
+					 Completeaza locatia in care vrei sa ajungi si modul de transport preferat
+					 <div class="row collapse">
+                        <div class="two mobile-one columns">
+                          <span class="prefix">Oras</span>
+                        </div>
+                        <div class="eight mobile-three columns">
+                          <input name="to" id="targetlocation" list="locations" class="twelve" type="text" placeholder="Sibiu">
+                        </div>
+                      </div>
+					  <h5>Selecteaza tipul de transport preferat</h5>
+						<select style="display:none;" id="customDropdown">
+						  <option SELECTED>Toate</option>
+						  <option>Autocar</option>
+						  <option>Tren</option>
+						</select>
+						<div class="custom dropdown" style="width: 185px; ">
+						  <a href="#" class="current">
+							Toate
+						  </a>
+						  <a href="#" class="selector"></a>
+						  <ul>
+							<li>Toate</li>
+							<li>Autocar</li>
+							<li>Tren</li>
+						  </ul>
+						</div>
+				  </p>		  </div><!-- /#panel-1 -->
           <div id="rezultate" class="page-panel">
 				  <h1>Panel 3</h1>
 				  <p>Quisque lacinia est a libero tempor quis gravida nibh luctus. Nulla facilisi. Vestibulum bibendum ipsum a lacus molestie pulvinar a nec risus. Nulla facilisi. Aenean nec tellus ligula. Ut tortor mi, consequat in ornare in, condimentum sed leo. Phasellus et luctus ipsum. Mauris gravida molestie velit ac iaculis. Integer quis libero id erat consectetur accumsan ut eget diam. In hac habitasse platea dictumst.</p>
 		  </div><!-- /#panel-1 -->
-    </div>
+    </form>
   </div>
   
   <div id="mapModal" class="reveal-modal">
     <h5>Is this your location?</h5>
-	<div id="googleMapElement" style="width: 100%; height: 150px;"></div>
+	  <img id="googleMapElement" src="#" style="width: 100%; height: 150px;" />
 	<br/>
 	<a href="#" class="close-reveal-modal">x</a>
-    <a href="#" id="yesButton" class="button">Yes</a>
+    <a href="javascript: closeGeoMap(true)" id="yesButton" class="button">Yes</a>
   </div>
-
+  
 </body>
 </html>

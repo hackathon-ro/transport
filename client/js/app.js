@@ -1,31 +1,17 @@
+
+var fromLocation = null;
+var geocoder = new google.maps.Geocoder();
+  
 jQuery(document).ready(function ($) {
-
-  var geocoder = new google.maps.Geocoder();
-
-  /* Use this js doc for all application specific JS */
-
-  /* TABS --------------------------------- */
-  /* Remove if you don't need :) */
 
   $("#myLocationButton").click(function(e){
     getUserLocation(function(location,latlng){
       initGeoMap('googleMapElement',latlng);
       $("#mapModal").reveal();
-      $("#mylocation").val(location);
+      fromLocation = location;
     });
     e.preventDefault();
   });
-  
-  function initGeoMap(elementID,latlng){
-     var mapOptions = {
-        zoom: 8,
-        center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    var map = new google.maps.Map(document.getElementById(elementID), mapOptions);
-  }
-  
-       
   
   function getUserLocation(callback){
    if(navigator.geolocation) {
@@ -43,7 +29,7 @@ jQuery(document).ready(function ($) {
             }
           });
    } else {
-    alert('no geo')
+    alert('no geolocation')
    }
   }
 
@@ -131,3 +117,15 @@ jQuery(document).ready(function ($) {
   /* Gives elements with a class of 'disabled' a return: false; */
 
 });
+
+function initGeoMap(elementID,latlng){
+  var msrc = 'http://maps.googleapis.com/maps/api/staticmap?center='+ latlng.Ya +',' + latlng.Za +'&zoom=8&size=400x150&sensor=false'
+  $("#" + elementID).attr("src",msrc);
+}
+  
+function closeGeoMap(b){
+  if(b) $("#mylocation").val(fromLocation);
+  $('#mapModal').trigger('reveal:close');
+  return false;
+}
+  
