@@ -123,8 +123,8 @@ function initGeoMap(elementID,latlng){
   $("#" + elementID).attr("src",msrc);
 }
   
-function closeGeoMap(b){
-  if(b) $("#mylocation").val(fromLocation);
+function closeGeoMap(){
+  $("#from").val(fromLocation);
   $('#mapModal').trigger('reveal:close');
   return false;
 }

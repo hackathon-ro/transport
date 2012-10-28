@@ -1,6 +1,6 @@
-$(function() {
+$(function($) {
   
-  var switchIndex = 0;
+  $.switchIndex = 0;
   var lastElement = 0;
   
   // Set the negative margin on the top menu for slide-menu pages
@@ -22,18 +22,17 @@ $(function() {
   if ($selector5.length > 0)  {
     $('#switchPanels dd').on(events, function(e) {
       e.preventDefault();
-      var switchToPanel = $(this).children('a').attr('href'),
-      switchIndex = $(switchToPanel).index();
+      var switchToPanel = $(this).children('a').attr('href');
+      $.switchIndex = $(switchToPanel).index();
       lastElement = $(this);
       $(this).toggleClass('active').siblings().removeClass('active');
-      $(switchToPanel).parent().css("left", (switchIndex * (-100) + '%'));
+      $(switchToPanel).parent().css("left", ($.switchIndex * (-100) + '%'));
     });
   }
 
   $(".nextPanel").on("click",function(e){
     e.preventDefault();
-    var switchToPanel = $(this).children('a').attr('href');
-    nextPage();
+    nextPanel();
   })
   
   $('div.page-panel').live("swipeleft", function(){
@@ -45,9 +44,33 @@ $(function() {
         var prevpage = $(this).prev('div[data-role="page"]');
 		// swipe using id of next page if exists
 		if (prevpage.length > 0) {
-			$.mobile.changePage(prevpage, 'slide', true);
+			nexPanel()
 		}
   });
+  
+  function nextPanel(){
+    
+    $.switchIndex = $.switchIndex + 1;
+    
+    var buttonEl = $("#button_panel_" + $.switchIndex);
+    var panelEl = $("#panel-" + $.switchIndex);
+
+    $(buttonEl.next()).addClass('active').siblings().removeClass('active');
+    $(panelEl).parent().css("left", ($.switchIndex * (-100) + '%'));
+    
+  }
+  
+  function prevPanel(){
+    
+    $.switchIndex = $.switchIndex - 1;
+    
+    var buttonEl = $("#button_panel_" + $.switchIndex);
+    var panelEl = $("#panel-" + $.switchIndex);
+
+    $(buttonEl.prev()).addClass('active').siblings().removeClass('active');
+    $(panelEl).parent().css("left", ($.switchIndex * (-100) + '%'));
+    
+  }
 
   
 });

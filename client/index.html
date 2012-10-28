@@ -63,9 +63,9 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
         <h5>Completeaza formularul.</h5>
       </div>
       <dl class="tabs" id="switchPanels">
-          <dd class="active"><a href="#panel-1">Pasul 1</a></dd>
-          <dd class="enabled"><a href="#panel-2">Pasul 2</a></dd>
-          <dd class="left"><a href="#rezultate">Rezultate</a></dd> 
+          <dd id="button_panel_1" class="active"><a href="#panel-1">Pasul 1</a></dd>
+          <dd id="button_panel_2" class="enabled"><a href="#panel-2">Pasul 2</a></dd>
+          <dd id="button_panel_3" class="left"><a href="#panel-3">Rezultate</a></dd> 
       </dl>          
   </div>
             
@@ -81,7 +81,7 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
                           <span class="prefix">Oras</span>
                         </div>
                         <div class="nine mobile-two columns">
-                          <input id="from" list="locations" class="twelve" type="text" placeholder="Bucuresti">
+                          <input id="from" name="from" list="locations" class="twelve" type="text" placeholder="Bucuresti">
                         </div>
 						<div class="one mobile-one columns">
                           <a id="myLocationButton" href="#"></a>
@@ -99,20 +99,20 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
                           <span class="prefix">Oras</span>
                         </div>
                         <div class="eight mobile-three columns">
-                          <input name="to" id="targetlocation" list="locations" class="twelve" type="text" placeholder="Sibiu">
+                          <input name="to" name="true" id="targetlocation" list="locations" class="twelve" type="text" placeholder="Sibiu">
                         </div>
                       </div>
 					  <h5>Selecteaza tipul de transport preferat</h5>
 					  <div class="">
-						 <label for="radio1"><input name="radio1" type="radio" id="radio1" style="display:none;"><span class="custom radio"></span> Toate</label>
-						 <label for="radio2"><input name="radio1" type="radio" id="radio2" style="display:none;"><span class="custom radio checked"></span> Trenuri</label>
+						 <label for="radio1"><input name="radio1" type="radio" checked id="radio1" style="display:none;"><span class="custom radio checked"></span> Toate</label>
+						 <label for="radio2"><input name="radio1" type="radio" id="radio2" style="display:none;"><span class="custom radio"></span> Trenuri</label>
 						 <label for="radio3"><input name="radio1" type="radio" id="radio3" style="display:none;"><span class="custom radio"></span> Autocare</label>
 					  </div>
 						     
 				  </p>
 		  <a id="nextPanel" class="button nextPanel" href="#nextPanel">Gaseste Posibilitati</a>
 		  </div><!-- /#panel-1 -->
-          <div id="rezultate" class="page-panel">
+          <div id="panel-3" class="page-panel">
 				  <h1>Panel 3</h1>
 				  <p>Quisque lacinia est a libero tempor quis gravida nibh luctus. Nulla facilisi. Vestibulum bibendum ipsum a lacus molestie pulvinar a nec risus. Nulla facilisi. Aenean nec tellus ligula. Ut tortor mi, consequat in ornare in, condimentum sed leo. Phasellus et luctus ipsum. Mauris gravida molestie velit ac iaculis. Integer quis libero id erat consectetur accumsan ut eget diam. In hac habitasse platea dictumst.</p>
 		  </div><!-- /#panel-1 -->
@@ -121,10 +121,10 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
   
   <div id="mapModal" class="reveal-modal">
     <h5>Is this your location?</h5>
-	  <img id="googleMapElement" src="#" style="width: 100%; height: 150px;" />
-	<br/>
+	<img id="googleMapElement" src="#" style="width: 100%; height: 150px;" />
+	<br/><br/>
 	<a href="#" class="close-reveal-modal">x</a>
-    <a href="javascript: closeGeoMap(true)" id="yesButton" class="button">Yes</a>
+    <a href="javascript: closeGeoMap(); " id="yesButton" class="button">Yes</a>
   </div>
   
 </body>
