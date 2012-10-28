@@ -8,9 +8,9 @@
 		}
 
 
-		public function getJson($plecare, $sosire)
+		public function getJson($from, $to)
 		{
-			$url = 'http://merstrenuri.ro/Lmb=Xml?Ple=' . $plecare . '&Sos=' . $sosire . '&Via=&Sub=Rute&Tpe=on&Tra=on&Tin=on&Ast=3&Dac=15641&Tof=on';
+			$url = 'http://merstrenuri.ro/Lmb=Xml?Ple=' . $from . '&Sos=' . $to . '&Via=&Sub=Rute&Tpe=on&Tra=on&Tin=on&Ast=3&Dac=15641&Tof=on';
 			$xml = simplexml_load_file($url);
 			$retArr = array();
 
@@ -51,19 +51,20 @@
 
 
 				 );
-				//print_r($retArr);
+				
 			}
-			print_r($retArr);
-			//echo json_encode($result);
-			return json_encode($xml);
+			
+			echo json_encode(array( 'trenuri' => $retArr));
 			
 		}
 	}
 
 
+	
+
+	//$tren->getJson('Bucuresti+Nord', 'Sinaia');
+
+	if(!isset($_REQUEST['from']) && !isset($_REQUEST['to']) ){ exit('Ups!'); }
+
 	$tren = new Trenuri();
-
-	$tren->getJson('Bucuresti+Nord', 'Sinaia');
-
-	if(!isset($_REQUEST['plecare']) && !isset($_REQUEST['sosire']) ){ exit('Ups!'); }
-	$tren->getJson($_REQUEST['plecare'], $_REQUEST['sosire']);
+	$tren->getJson($_REQUEST['from'], $_REQUEST['to']);
