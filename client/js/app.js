@@ -1,6 +1,8 @@
 
 var fromLocation = null;
 var geocoder = new google.maps.Geocoder();
+
+var gateway_url = "http://t.zeweb.ro/api.php";
   
 jQuery(document).ready(function ($) {
 
@@ -32,29 +34,10 @@ jQuery(document).ready(function ($) {
     alert('no geolocation')
    }
   }
-
-  function activateTab($tab) {
-    
-    var $activeTab = $tab.closest('dl').find('a.active'),
-    contentLocation = $tab.attr("href") + 'Tab';
-
-    // Strip off the current url that IE adds
-    contentLocation = contentLocation.replace(/^.+#/, '#');
-
-    //Make Tab Active
-    $activeTab.removeClass('active').parent('dd').removeClass('active');
-    $tab.addClass('active').parent('dd').addClass('active');
-
-    //Show Tab Content
-    $(contentLocation).closest('.tabs-content').children('li').hide();
-    $(contentLocation).css('display', 'block');
+  
+  function renderResults(){
     
   }
-
-  $('dl.tabs dd a').live('click', function (event) {
-    event.preventDefault();
-    activateTab($(this));
-  });
 
   /* ALERT BOXES ------------ */
   $(".alert-box").delegate("a.close", "click", function(event) {
@@ -64,59 +47,17 @@ jQuery(document).ready(function ($) {
     });
   });
 
-
-  /* PLACEHOLDER FOR FORMS ------------- */
-  /* Remove this and jquery.placeholder.min.js if you don't need :) */
-
-  //$('input, textarea').placeholder();
-
-  //* TOOLTIPS ------------ */
-  //$(this).tooltips();
-
-
-
-  /* UNCOMMENT THE LINE YOU WANT BELOW IF YOU WANT IE6/7/8 SUPPORT AND ARE USING .block-grids */
-//  $('.block-grid.two-up>li:nth-child(2n+1)').css({clear: 'left'});
-//  $('.block-grid.three-up>li:nth-child(3n+1)').css({clear: 'left'});
-//  $('.block-grid.four-up>li:nth-child(4n+1)').css({clear: 'left'});
-//  $('.block-grid.five-up>li:nth-child(5n+1)').css({clear: 'left'});
-
-
-
-  /* DROPDOWN NAV ------------- */
-
-  var lockNavBar = false;
-  $('.nav-bar a.flyout-toggle').live('click', function(e) {
-    e.preventDefault();
-    var flyout = $(this).siblings('.flyout');
-    if (lockNavBar === false) {
-      $('.nav-bar .flyout').not(flyout).slideUp(500);
-      flyout.slideToggle(500, function(){
-        lockNavBar = false;
-      });
-    }
-    lockNavBar = true;
-  });
-  if (Modernizr.touch) {
-    $('.nav-bar>li.has-flyout>a.main').css({
-      'padding-right' : '75px'
-    });
-    $('.nav-bar>li.has-flyout>a.flyout-toggle').css({
-      'border-left' : '1px dashed #eee'
-    });
-  } else {
-    $('.nav-bar>li.has-flyout').hover(function() {
-      $(this).children('.flyout').show();
-    }, function() {
-      $(this).children('.flyout').hide();
-    })
-  }
-
-
-  /* DISABLED BUTTONS ------------- */
-  /* Gives elements with a class of 'disabled' a return: false; */
-
 });
+
+function getTrasee(){
+   gotoPanelByID(2);
+   $.getJSON(gateway_url + "?from=Bucuresti&to=Sibiu&type=tren&callback=?", function(data){
+      $.each(data,function(i,item){
+        console.log(item);
+      })
+   });
+    //alert(ajx);
+}
 
 function initGeoMap(elementID,latlng){
   var msrc = 'http://maps.googleapis.com/maps/api/staticmap?center='+ latlng.Ya +',' + latlng.Za +'&zoom=8&size=400x150&sensor=false'
@@ -128,4 +69,3 @@ function closeGeoMap(){
   $('#mapModal').trigger('reveal:close');
   return false;
 }
-  

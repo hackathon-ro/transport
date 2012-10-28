@@ -38,3 +38,24 @@ body {
   line-height: 31px;
   text-indent: -10000px;
 }
+
+#lista-rute .traseu{
+  border: 1px solid #EAEAEA;
+  padding: 10px 8px;
+  margin: 16px 0px;
+  box-shadow: 0px 5px 3px -2px #DDC;
+}
+
+#lista-rute .traseu .ico{
+  padding-left: 44px;
+  font-size: 15px;
+  line-height: 32px;
+}
+
+#lista-rute .traseu .ico.bus{
+  background: url("../images/bus.png") no-repeat 2px center;
+}
+
+#lista-rute .traseu .ico.train{
+  background: url("../images/train.png") no-repeat 2px center;
+}

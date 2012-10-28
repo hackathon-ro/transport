@@ -16,14 +16,44 @@ $(function($) {
       $('body').toggleClass('active-menu');
     });
   }
+  
+   
+  function activateTab($tab) {
+    
+    var $activeTab = $tab.closest('dl').find('a.active'),
+    contentLocation = $tab.attr("href") + 'Tab';
+
+    // Strip off the current url that IE adds
+    contentLocation = contentLocation.replace(/^.+#/, '#');
+
+    //Make Tab Active
+    $activeTab.removeClass('active').parent('dd').removeClass('active');
+    $tab.addClass('active').parent('dd').addClass('active');
+
+    //Show Tab Content
+    $(contentLocation).closest('.tabs-content').children('li').hide();
+    $(contentLocation).css('display', 'block');
+    
+  }
+
+  $('dl.tabs dd a').live('click', function (event) {
+    event.preventDefault();
+    if($.switchIndex == 2) return;
+    activateTab($(this));
+  });
 
   // Switch panels for the paneled nav on mobile
   var $selector5 = $('#switchPanels');
   if ($selector5.length > 0)  {
     $('#switchPanels dd').on(events, function(e) {
+      
       e.preventDefault();
+      
       var switchToPanel = $(this).children('a').attr('href');
       $.switchIndex = $(switchToPanel).index();
+      
+      if($.switchIndex == 2) return;
+      
       lastElement = $(this);
       $(this).toggleClass('active').siblings().removeClass('active');
       $(switchToPanel).parent().css("left", ($.switchIndex * (-100) + '%'));
@@ -47,6 +77,20 @@ $(function($) {
 			nexPanel()
 		}
   });
+
+});
+
+  function gotoPanelByID(id){
+    
+    $.switchIndex = id;
+    
+    var buttonEl = $("#button_panel_" + $.switchIndex);
+    var panelEl = $("#panel-" + $.switchIndex);
+
+    $(buttonEl.next()).addClass('active').siblings().removeClass('active');
+    $(panelEl).parent().css("left", ($.switchIndex * (-100) + '%'));
+    
+  }
   
   function nextPanel(){
     
@@ -55,6 +99,8 @@ $(function($) {
     var buttonEl = $("#button_panel_" + $.switchIndex);
     var panelEl = $("#panel-" + $.switchIndex);
 
+    if($.switchIndex == 3) return;
+    
     $(buttonEl.next()).addClass('active').siblings().removeClass('active');
     $(panelEl).parent().css("left", ($.switchIndex * (-100) + '%'));
     
@@ -71,6 +117,3 @@ $(function($) {
     $(panelEl).parent().css("left", ($.switchIndex * (-100) + '%'));
     
   }
-
-  
-});
