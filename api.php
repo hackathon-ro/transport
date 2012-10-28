@@ -2,14 +2,20 @@
 include "kernel/load.php";
 header('Content-Type: application/json');
 
-$name = mysql_real_escape_string(@$_REQUEST["name"]);
+$to = mysql_real_escape_string(@$_REQUEST["to"]);
+$from = mysql_real_escape_string(@$_REQUEST["from"]);
 
-/* de aici incepe */
-if(!isset($_REQUEST['what'])){ exit('da fuck?'); }
-	switch($_REQUEST['what']){
-		case "search":
 
-		$fetch = query("SELECT * FROM `statii` WHERE `nume` LIKE '%$name%'");
+
+
+
+
+		$fetch = query("SELECT * 
+						FROM rute AS r
+						INNER JOIN statii AS s ON r.id_statie = s.id
+						INNER JOIN operatori AS o ON r.id_operator = o.id
+						LIMIT 0 , 30
+						");
 		$statii = array();
 		while ($row = mysql_fetch_array($fetch, MYSQL_ASSOC)) {
 		    $row_array['id'] = $row['id'];
@@ -19,21 +25,11 @@ if(!isset($_REQUEST['what'])){ exit('da fuck?'); }
 		    array_push($statii,$row_array);
 	}
 
-echo json_encode($statii);
 
-		break;
-		case "id":
-   
-			//echo $_REQUEST['name'];
-
-		break;
-
-
-     }
-
-// 	SELECT * 
-// FROM rute AS r
-// INNER JOIN statii AS s ON r.id_statie = s.id
-// INNER JOIN operatori AS o ON r.id_operator = o.id
-// LIMIT 0 , 30
+/* SELECT * 
+FROM rute AS r
+INNER JOIN statii AS s ON r.id_statie = s.id
+INNER JOIN operatori AS o ON r.id_operator = o.id
+WHERE loc LIKE '%Bucuresti%' and loc like '%sibiu%' group by id_ruta
+*/
 
