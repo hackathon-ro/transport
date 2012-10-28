@@ -1,2 +1,2 @@
 <?php 
-header("location: client")
+header("location: client");
