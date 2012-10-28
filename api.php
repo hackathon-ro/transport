@@ -30,3 +30,10 @@ echo json_encode($statii);
 
 
      }
+
+// 	SELECT * 
+// FROM rute AS r
+// INNER JOIN statii AS s ON r.id_statie = s.id
+// INNER JOIN operatori AS o ON r.id_operator = o.id
+// LIMIT 0 , 30
+
