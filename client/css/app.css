@@ -2,6 +2,7 @@ body {
   background: #EAEAEA;
   position: absolute;
   top: 0;
+  overflow: hidden;
 }
 
 .app-title { font-size: 32px; }
