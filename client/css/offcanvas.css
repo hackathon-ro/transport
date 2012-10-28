@@ -43,6 +43,7 @@ footer { background: #555; color: #fff; padding: 10px 0; }
 
 .active-menu [role="navigation"]#topMenu { margin-top: 0 !important; }
 
+/*
 @media all and (min-width: 768px) { .js menu-button, .js .sidebar-button { display: none; }
   .js [role="complementary"] { width: 33.34%; margin-left: 0; float: left; padding: 0 15px; }
   .js [role="main"] { width: 66.66%; padding: 0 15px; }
@@ -50,4 +51,4 @@ footer { background: #555; color: #fff; padding: 10px 0; }
   .js .page-panel { display: block; min-height: 800px; float: none; margin: 0; width: 100%; background: #f4f4f4; }
   .js .hide-extras [role="main"] { width: 100%; }
   .js .hide-extras [role="complementary"] { display: none; }
-  .js [role="navigation"]#topMenu { display: none; } }
+  .js [role="navigation"]#topMenu { display: none; } } */

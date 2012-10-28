@@ -36,6 +36,7 @@ $(function() {
 
   $("#nextPanel").on("click",function(e){
     e.preventDefault();
+    var switchToPanel = $(this).children('a').attr('href');
     
   })
   

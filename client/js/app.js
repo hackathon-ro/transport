@@ -46,14 +46,16 @@ jQuery(document).ready(function ($) {
     $activeTab.removeClass('active').parent('dd').removeClass('active');
     $tab.addClass('active').parent('dd').addClass('active');
 
+    //Show Tab Content
+    $(contentLocation).closest('.tabs-content').children('li').hide();
+    $(contentLocation).css('display', 'block');
+    
   }
 
   $('dl.tabs dd a').live('click', function (event) {
     event.preventDefault();
     activateTab($(this));
   });
-  
-  */
 
   /* ALERT BOXES ------------ */
   $(".alert-box").delegate("a.close", "click", function(event) {
@@ -67,10 +69,10 @@ jQuery(document).ready(function ($) {
   /* PLACEHOLDER FOR FORMS ------------- */
   /* Remove this and jquery.placeholder.min.js if you don't need :) */
 
-  $('input, textarea').placeholder();
+  //$('input, textarea').placeholder();
 
-  /* TOOLTIPS ------------ */
-  $(this).tooltips();
+  //* TOOLTIPS ------------ */
+  //$(this).tooltips();
 
 
 
