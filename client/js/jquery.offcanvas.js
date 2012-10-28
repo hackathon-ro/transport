@@ -36,7 +36,7 @@ $(function() {
 
   $("#nextPanel").on("click",function(e){
     e.preventDefault();
-    alert(switchIndex);
+    
   })
   
   $('#nav li a').on(events, function(e) {

@@ -1,5 +1,6 @@
 body { background: #EAEAEA; }
 
+.app-title { font-size: 32px; }
 .view-grid {
     background: url("../images/grid.png") no-repeat scroll 0 0 transparent;
     display: block;
@@ -8,7 +9,7 @@ body { background: #EAEAEA; }
     float: right;
 }
 
-#switchPanels dd { border-radius: 6px 6px 0 0; }
+#switchPanels dd {  }
 #switchPanels .left { float: right !important; }
 
 .mobile-header {
