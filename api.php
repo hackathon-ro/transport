@@ -1,9 +1,9 @@
 <?php
 include "kernel/load.php";
 header('Content-Type: application/json');
-		
+
+
 		$ids = array();
-		
 		$fetch = query('SELECT r.id_ruta, r.ps, s.loc
 						FROM rute r
 						INNER JOIN statii s ON (s.id = r.id_statie AND (loc LIKE "%Bucuresti%" OR loc LIKE "%Sibiu%"))
@@ -31,10 +31,6 @@ header('Content-Type: application/json');
 /*
 $to = mysql_real_escape_string(@$_REQUEST["to"]);
 $from = mysql_real_escape_string(@$_REQUEST["from"]);
-
-
-
-
 
 
 		$fetch = query("SELECT * 
