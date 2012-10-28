@@ -1,31 +1,19 @@
-/* Artfully masterminded by ZURB  */
+body { background: #EAEAEA; }
 
-/* -------------------------------------------------- 
-   Table of Contents
------------------------------------------------------
-:: Shared Styles
-:: Page Name 1
-:: Page Name 2
-*/
+.view-grid {
+    background: url("../images/grid.png") no-repeat scroll 0 0 transparent;
+    display: block;
+    height: 32px;
+    width: 32px;
+    float: right;
+}
 
+#switchPanels dd { border-radius: 6px 6px 0 0; }
+#switchPanels .left { float: right !important; }
 
-/* -----------------------------------------
-   Shared Styles
------------------------------------------ */
-
-
-
-/* -----------------------------------------
-   Page Name 1
------------------------------------------ */
-
-
-
-
-/* -----------------------------------------
-   Page Name 2
------------------------------------------ 
-
-#main-container { overflow: hidden; width: 100%; }
-#main-container .panel{ width: 100%; }
-*/
+.mobile-header {
+  display: block;
+  background: #EAEAEA;
+  color: #ACACAC;
+  padding: 0px 10px;
+}
