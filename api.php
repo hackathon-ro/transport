@@ -17,7 +17,7 @@ $shittyjson = $json["query"]["results"]["Rute"]["Ruta"];
 
 foreach ($shittyjson as $value) {
 
-	echo json_encode($value["Tren"]);
+	echo json_encode(@$value["Tren"]);
 	//array_push($arr,);
 }
 
