@@ -1,1 +1,2 @@
-test
+<?php 
+header("location: client")

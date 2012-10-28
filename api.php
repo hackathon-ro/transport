@@ -2,7 +2,7 @@
 include "kernel/load.php";
 header('Content-Type: application/json');
 
-$name = mysql_real_escape_string($_REQUEST["name"]);
+$name = mysql_real_escape_string(@$_REQUEST["name"]);
 
 /* de aici incepe */
 if(!isset($_REQUEST['what'])){ exit('da fuck?'); }
