@@ -1,17 +1,10 @@
 $(function() {
+  
+  var switchIndex = 1;
   // Set the negative margin on the top menu for slide-menu pages
   var $selector1 = $('#topMenu'),
     events = 'click.fndtn touchstart.fndtn';
   if ($selector1.length > 0) $selector1.css("margin-top", $selector1.height() * -1);
-
-  // Watch for clicks to show the sidebar
-  var $selector2 = $('#sidebarButton');
-  if ($selector2.length > 0) {
-    $('#sidebarButton').on(events, function(e) {
-      e.preventDefault();
-      $('body').toggleClass('active');
-    });
-  }
 
   // Watch for clicks to show the menu for slide-menu pages
   var $selector3 = $('#menuButton');
@@ -35,16 +28,22 @@ $(function() {
     $('#switchPanels dd').on(events, function(e) {
       e.preventDefault();
       var switchToPanel = $(this).children('a').attr('href'),
-          switchToIndex = $(switchToPanel).index();
+      switchIndex = $(switchToPanel).index();
       $(this).toggleClass('active').siblings().removeClass('active');
-      $(switchToPanel).parent().css("left", (switchToIndex * (-100) + '%'));
+      $(switchToPanel).parent().css("left", (switchIndex * (-100) + '%'));
     });
   }
 
+  $("#nextPanel").on("click",function(e){
+    e.preventDefault();
+    alert(switchIndex);
+  })
+  
   $('#nav li a').on(events, function(e) {
     e.preventDefault();
     var href = $(this).attr('href'),
       $target = $(href);
     $('html, body').animate({scrollTop : $target.offset().top}, 300);
   });
+  
 });
