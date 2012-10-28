@@ -10,13 +10,13 @@
 
 		public function getJson($from, $to)
 		{
-			$url = 'http://merstrenuri.ro/Lmb=Xml?Ple=' . $from . '&Sos=' . $to . '&Via=&Sub=Rute&Tpe=on&Tra=on&Tin=on&Ast=3&Dac=15641&Tof=on';
+			$url = file_get_contents('http://merstrenuri.ro/Lmb=Xml?Ple=' . $from . '&Sos=' . $to . '&Via=&Sub=Rute&Tpe=on&Tra=on&Tin=on&Ast=3&Dac=15641&Tof=on');
 			$xml = simplexml_load_file($url);
 			$retArr = array();
 
-			$results = $xml->xpath('//Ruta');
-
-			foreach($results as $result){
+			//$results = $xml->xpath('//Ruta');
+  			
+			foreach($results->item as $result){
 
 				if(!is_null($result->Tren->Itren)){
 					$tip 					= $result->Tren->Itren->attributes()->tip->__toString();
