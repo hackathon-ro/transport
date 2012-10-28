@@ -34,8 +34,8 @@ jQuery(document).ready(function ($) {
    }
   }
 
-
   function activateTab($tab) {
+    
     var $activeTab = $tab.closest('dl').find('a.active'),
     contentLocation = $tab.attr("href") + 'Tab';
 
@@ -46,14 +46,14 @@ jQuery(document).ready(function ($) {
     $activeTab.removeClass('active').parent('dd').removeClass('active');
     $tab.addClass('active').parent('dd').addClass('active');
 
-    //Show Tab Content
-    $(contentLocation).closest('.tabs-content').children('li').hide();
-    $(contentLocation).css('display', 'block');
   }
 
   $('dl.tabs dd a').live('click', function (event) {
+    event.preventDefault();
     activateTab($(this));
   });
+  
+  */
 
   /* ALERT BOXES ------------ */
   $(".alert-box").delegate("a.close", "click", function(event) {
