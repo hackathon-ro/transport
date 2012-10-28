@@ -17,7 +17,7 @@ $shittyjson = $json["query"]["results"]["Rute"]["Ruta"];
 
 foreach ($shittyjson as $value) {
 
-	$json = json_encode(@$value["Tren"]);
+	$json .= json_encode(@$value["Tren"]);
 	$json = str_replace("null", "" , $json);
 	echo $json;
 }
