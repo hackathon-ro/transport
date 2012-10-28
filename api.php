@@ -4,8 +4,8 @@ include "kernel/load.php";
 header('Content-Type: application/json');
 
 $type = mysql_real_escape_string(@$_REQUEST["type"]); 
-$to = mysql_real_escape_string(@$_REQUEST["to"]);
-$from = mysql_real_escape_string(@$_REQUEST["from"]);
+$to = mysql_real_escape_string(@$_REQUEST["t"]);
+$from = mysql_real_escape_string(@$_REQUEST["f"]);
 $callback = mysql_real_escape_string(@$_REQUEST["callback"]);
 
 api::__run($to,$from,$type,$callback);
@@ -36,7 +36,7 @@ class api{
 		$results = array();
 
 		foreach($json->query->results->Rute->Ruta as $route){
-			$results[] = array(
+			$results[] = (object)array(
 				"type" => "train",
 				"data" => $route
 			);

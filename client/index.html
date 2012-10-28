@@ -104,8 +104,8 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
 					  <h5>Selecteaza tipul de transport preferat</h5>
 					  <div class="">
 						 <label for="radio1"><input name="radio1" type="radio" checked id="radio1" style="display:none;"><span class="custom radio checked"></span> Toate</label>
-						 <label for="radio2"><input name="radio1" type="radio" id="radio2" style="display:none;"><span class="custom radio"></span> Trenuri</label>
-						 <label for="radio3"><input name="radio1" type="radio" id="radio3" style="display:none;"><span class="custom radio"></span> Autocare</label>
+						 <label for="radio2"><input name="radio1" type="radio" id="radio2" disambled style="display:none;"><span class="custom radio disambled"></span> Trenuri</label>
+						 <label for="radio3"><input name="radio1" type="radio" id="radio3" disambled style="display:none;"><span class="custom radio disambled"></span> Autocare</label>
 					  </div>
 						     
 				  </p>
@@ -114,12 +114,10 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
           <div id="panel-3" class="page-panel">
 				  <h5>Rezultate</h5>
 				  <div id="lista-rute" class="rows lista-rute">
-					<div class="twelve columns traseu">
-					  <div class="title ico train">Acceleratul de marasesti</div>
-					</div>
-					<div class="twelve columns traseu">
-					  <div class="title ico bus">Acceleratul de marasesti</div><br/>
-					</div>
+				  </div>
+				  <div id="train-template" style="display:none" class="twelve columns traseu">
+					  <div class="title ico"></div>
+					  <div class="body"></div>
 				  </div>
 		  </div><!-- /#panel-1 -->
     </form>

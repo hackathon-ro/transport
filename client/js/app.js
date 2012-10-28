@@ -34,10 +34,6 @@ jQuery(document).ready(function ($) {
     alert('no geolocation')
    }
   }
-  
-  function renderResults(){
-    
-  }
 
   /* ALERT BOXES ------------ */
   $(".alert-box").delegate("a.close", "click", function(event) {
@@ -50,13 +46,54 @@ jQuery(document).ready(function ($) {
 });
 
 function getTrasee(){
+   
    gotoPanelByID(2);
-   $.getJSON(gateway_url + "?from=Bucuresti&to=Sibiu&type=train&callback=?", function(data){
-      $.each(data,function(i,item){
-        console.log(item);
+      
+   var from = $("#from").val() != undefined ? $("#from").val() : "Sibiu";
+   var to = $("#to").val() != undefined ? $("#to").val() : "Sibiu";
+   
+   $.getJSON(gateway_url + "?f="+from+"&t="+to+"&type=train&callback=?", function(data){
+      $("#lista-rute").html("");
+	  $.each(data.results,function(i,item){
+        renderItem(i,item);
       })
    });
     //alert(ajx);
+}
+
+function renderItem(z,item){
+	
+	var lista = $("#lista-rute");
+	var theClone = $("#train-template").clone();
+	var tName = "";
+	
+	theClone.attr('style',"");
+	theClone.attr("id",'train' + z);
+	
+	lista.append(theClone);
+
+	$.each(item.data.Tren,function(i,train){
+		
+		var tinfo = train;
+				
+		tName += tName;
+		
+		if(tinfo.Itren){
+			if(tinfo.Itren.tip) tName += tinfo.Itren.tip;
+			if(tinfo.Itren.nr) tName += tinfo.Itren.nr;
+		}
+		
+		theClone.find('.title').append("<b>" + tName + "</b> - ");
+		
+		if(tinfo.Plecare && tinfo.Plecare.ora && tinfo.Plecare.sta)theClone.find('.body').append('<div class="tag">').html('Pleaca la ' + tinfo.Plecare.ora + " din " + tinfo.Plecare.sta);
+		
+		if(i == item.data.Tren.length - 1) theClone.find('.body').append('<div class="tag">').html('Soseste la ' + tinfo.Sosire.ora + " din " + tinfo.Sosire.sta);
+		
+	})
+	
+	theClone.find('.title').addClass(item.type);
+	
+	
 }
 
 function initGeoMap(elementID,latlng){
