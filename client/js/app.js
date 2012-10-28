@@ -8,10 +8,10 @@ jQuery(document).ready(function ($) {
   /* Remove if you don't need :) */
 
   $("#myLocationButton").click(function(e){
-    e.preventDefault();
     getUserLocation(function(location){
       $("#mylocation").val(location);
     });
+    e.preventDefault();
   });
   
   function getUserLocation(callback){
