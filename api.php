@@ -7,13 +7,21 @@ $type = mysql_real_escape_string(@$_REQUEST["type"]);
 $to = mysql_real_escape_string(@$_REQUEST["to"]);
 $from = mysql_real_escape_string(@$_REQUEST["from"]);
 
-$callback = $_REQUEST["callback"];
+$callback = @	$_REQUEST["callback"];
 echo "$callback(";
 if ($type == "tren"){
 $xml = cache_url('http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%0A%20%20%20%20where%20url%3D\'http%3A%2F%2Fmerstrenuri.ro%2FLmb%3DXml%3FPle%3D' . $to . '%26Sos%3D' . $from . '%26Via%3D%26Sub%3DRute%26Tpe%3Don%26Tra%3Don%26Tin%3Don%26Ast%3D3%26Dac%3D15590\'&format=json&callback=', FALSE);
 $json = json_decode($xml, true);
 $shittyjson = $json["query"]["results"]["Rute"]["Ruta"];
-echo json_encode($shittyjson);
+
+
+foreach ($shittyjson as $value) {
+
+	echo json_encode($value["Tren"]);
+	//array_push($arr,);
+}
+
+
 }
 
 echo ")";
