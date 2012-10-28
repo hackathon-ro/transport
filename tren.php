@@ -13,10 +13,7 @@
 
 		public function getJson($from, $to)
 		{
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
 			$url = file_get_contents('http://merstrenuri.ro/Lmb=Xml?Ple=' . $from . '&Sos=' . $to . '&Via=&Sub=Rute&Tpe=on&Tra=on&Tin=on&Ast=3&Dac=15641&Tof=on');
 			$xml = simplexml_load_file($url);
 
@@ -39,18 +36,12 @@
 
 				$possibleFrom[] = $result->attributes()->nume->__toString();
 
-<<<<<<< HEAD
 			}
 
 			$wildcard = $to;
 			$results = $xmlSugestion->xpath('//Statie[contains(@nume,"' . $wildcard . '")]');
 
 			foreach($results as $result){
-=======
-			//$results = $xml->xpath('//Ruta');
-  			
-			foreach($results->item as $result){
->>>>>>> origin/master
 
 				$possibleTo[] = $result->attributes()->nume->__toString();
 
