@@ -38,7 +38,8 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
   <!-- End Combine and Compress These JS Files -->
   
   <script type="text/javascript" src="js/jquery.offcanvas.js"></script>
-    
+  <script type="text/javascript" src="js/jquery.swype.js"></script>
+
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -87,7 +88,7 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
                         </div>
                       </div>
 				  </p>
-		          <a id="nextPanel" class="button" href="#nextPanel">Next</a>
+		          <a id="nextPanel" class="button nextPanel" href="#nextPanel">Next</a>
 		  </div><!-- /#panel-1 -->
           <div id="panel-2" class="page-panel">
 				  <h1>Unde vrei sa ajungi?</h1>
@@ -102,23 +103,15 @@ href="//fonts.googleapis.com/css?family=Roboto:regular,medium,thin,italic,medium
                         </div>
                       </div>
 					  <h5>Selecteaza tipul de transport preferat</h5>
-						<select style="display:none;" id="customDropdown">
-						  <option SELECTED>Toate</option>
-						  <option>Autocar</option>
-						  <option>Tren</option>
-						</select>
-						<div class="custom dropdown" style="width: 185px; ">
-						  <a href="#" class="current">
-							Toate
-						  </a>
-						  <a href="#" class="selector"></a>
-						  <ul>
-							<li>Toate</li>
-							<li>Autocar</li>
-							<li>Tren</li>
-						  </ul>
-						</div>
-				  </p>		  </div><!-- /#panel-1 -->
+					  <div class="">
+						 <label for="radio1"><input name="radio1" type="radio" id="radio1" style="display:none;"><span class="custom radio"></span> Toate</label>
+						 <label for="radio2"><input name="radio1" type="radio" id="radio2" style="display:none;"><span class="custom radio checked"></span> Trenuri</label>
+						 <label for="radio3"><input name="radio1" type="radio" id="radio3" style="display:none;"><span class="custom radio"></span> Autocare</label>
+					  </div>
+						     
+				  </p>
+		  <a id="nextPanel" class="button nextPanel" href="#nextPanel">Gaseste Posibilitati</a>
+		  </div><!-- /#panel-1 -->
           <div id="rezultate" class="page-panel">
 				  <h1>Panel 3</h1>
 				  <p>Quisque lacinia est a libero tempor quis gravida nibh luctus. Nulla facilisi. Vestibulum bibendum ipsum a lacus molestie pulvinar a nec risus. Nulla facilisi. Aenean nec tellus ligula. Ut tortor mi, consequat in ornare in, condimentum sed leo. Phasellus et luctus ipsum. Mauris gravida molestie velit ac iaculis. Integer quis libero id erat consectetur accumsan ut eget diam. In hac habitasse platea dictumst.</p>
