@@ -9,7 +9,6 @@ if(!isset($_REQUEST['what'])){ exit('da fuck?'); }
 	switch($_REQUEST['what']){
 		case "search":
 
-
 		$fetch = query("SELECT * FROM `statii` WHERE `nume` LIKE '%$name%'");
 		$statii = array();
 		while ($row = mysql_fetch_array($fetch, MYSQL_ASSOC)) {
