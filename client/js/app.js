@@ -51,7 +51,7 @@ jQuery(document).ready(function ($) {
 
 function getTrasee(){
    gotoPanelByID(2);
-   $.getJSON(gateway_url + "?from=Bucuresti&to=Sibiu&type=tren&callback=?", function(data){
+   $.getJSON(gateway_url + "?from=Bucuresti&to=Sibiu&type=train&callback=?", function(data){
       $.each(data,function(i,item){
         console.log(item);
       })

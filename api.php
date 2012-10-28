@@ -37,7 +37,7 @@ class api{
 
 		foreach($json->query->results->Rute->Ruta as $route){
 			$results[] = array(
-				"type" => $type,
+				"type" => "train",
 				"data" => $route
 			);
 		}
