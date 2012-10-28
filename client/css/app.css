@@ -1,4 +1,8 @@
-body { background: #EAEAEA; }
+body {
+  background: #EAEAEA;
+  position: absolute;
+  top: 0;
+}
 
 .app-title { font-size: 32px; }
 .view-grid {
